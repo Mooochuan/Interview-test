@@ -26,11 +26,6 @@ Before you begin, ensure you have the following installed:
 
 ### 1. Clone the Repository
 
-```bash
-git clone <your-repository-url>
-cd Interview-test
-```
-
 ### 2. Backend Setup
 
 1. Navigate to the backend directory:
