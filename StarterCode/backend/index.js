@@ -1,12 +1,11 @@
 const express = require('express');
 require('dotenv').config();
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-
-//implement the CORS config
 
 //products array
 let products = [
@@ -23,14 +22,46 @@ const fetchImageUrl = () => {
     return `https://picsum.photos/200/200?random=${Math.floor(Math.random() * 1000)}`;
 };
 
+// CORS middleware
+app.use((req, res, next) => {
+  // Allow requests from frontend
+  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+  
+  // Allow specific HTTP methods
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  
+  // Allow specific headers
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  
+  // Handle preflight requests
+  if (req.method === 'OPTIONS') {
+    return res.sendStatus(200);
+  }
+  
+  next();
+});
+
 //implement the get api for getting products
 app.get('/api/products', (req, res) => {
-
+    const productsWithImages = products.map(product => ({
+        ...product,
+        imageUrl: fetchImageUrl()
+    }));
+    res.json(productsWithImages);
 });
 
 //implement the delete api for deleting a product by Id
 app.delete('/api/products/:id', (req, res) => {
+    const productId = parseInt(req.params.id);
+    const initialLength = products.length;
     
+    products = products.filter(product => product.id !== productId);
+    
+    if (products.length === initialLength) {
+        return res.status(404).json({ message: 'Product not found' });
+    }
+    
+    res.json({ message: 'Product deleted successfully' });
 });
 
 app.listen(PORT, () => {
