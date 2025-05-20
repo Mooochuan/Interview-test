@@ -1,11 +1,88 @@
-# SWE INTERVIEW TEST 
-THIS IS TO TEST YOUR SKILLS TO MEET OUR APP DEVELOPMENT REQUIREMENTS
+# Simple Card List Application
 
-1. Clone this repo to your local machine.
-2. Read `Assignment Requirements` carefully and follow it.
-4. Please commit your entire code to `your own Github repository` 
-5. On your repo, please add step-by-step instructions on how to launch (for both the Backend and Frontend) to the `README.md`
-6. Share your repo link with us via email.
+This is a full-stack application that displays a list of products with their details and allows users to delete products.
 
-HAPPY CODING! </br>
-A Round Entertainment
+## Tech Stack
+
+### Frontend
+
+- React
+- Material UI
+- Axios
+
+### Backend
+
+- Node.js
+- Express.js
+
+## Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- Node.js (v14 or higher)
+- npm (v6 or higher)
+
+## Step-by-Step Launch Instructions
+
+### 1. Clone the Repository
+
+```bash
+git clone <your-repository-url>
+cd Interview-test
+```
+
+### 2. Backend Setup
+
+1. Navigate to the backend directory:
+
+```bash
+cd StarterCode/backend
+```
+
+2. Install dependencies:
+
+```bash
+npm install
+```
+
+3. Start the backend server:
+
+```bash
+npm start
+```
+
+The backend server will run on http://localhost:5000
+
+### 3. Frontend Setup
+
+1. Open a new terminal window
+
+2. Navigate to the frontend directory:
+
+```bash
+cd StarterCode/frontend
+```
+
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the frontend development server:
+
+```bash
+npm start
+```
+
+The frontend application will run on http://localhost:3000
+
+## Troubleshooting
+
+If you encounter any issues:
+
+1. Ensure both frontend and backend servers are running
+2. Check that the backend is running on port 5000
+3. Check that the frontend is running on port 3000
+4. Verify that all dependencies are installed correctly
+5. Check the browser console for any error messages
